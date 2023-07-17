@@ -31,7 +31,7 @@ public class RegistrationPage {
             closeWindow = $("#closeLargeModal");
 
     public RegistrationPage openPage() {
-        open("automation-practice-form");
+        open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
