@@ -22,6 +22,7 @@ public class TestBaseRemote {
         Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
         Configuration.pageLoadStrategy = "eager";
         Configuration.remote = System.getProperty("remoteSelenoidUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub/");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
