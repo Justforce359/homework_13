@@ -9,6 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import properties.tests.SystemPropertiesTests;
 
 import java.util.Map;
 
@@ -17,11 +18,13 @@ public class TestBaseRemote {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com/";
+        Configuration.browser = SystemPropertiesTests.browserProperty;
+        Configuration.browserSize = SystemPropertiesTests.browserSizeProperty;
+        Configuration.browserVersion = SystemPropertiesTests.browserVersionProperty;
+        Configuration.baseUrl = SystemPropertiesTests.baseUrlProperty;
+        Configuration.remote = SystemPropertiesTests.remoteSelenoidProperty;
         Configuration.pageLoadStrategy = "eager";
 
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
